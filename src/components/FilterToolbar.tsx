@@ -32,13 +32,11 @@ const RIYADH_DISTRICTS = [
   'Al Safarat'
 ];
 
-const PROPERTY_TYPES: ('All Types' | PropertyType)[] = [
+const PROPERTY_TYPES = [
   'All Types',
-  'Contemporary Palace',
-  'Luxury Modern Villa',
-  'KAFD Sky Penthouse',
-  'Architectural Duplex',
-  'Modern Townhome'
+  'Palaces & Luxury Villas',
+  'Penthouses & Apartments',
+  'Townhomes & Duplexes'
 ];
 
 export const FilterToolbar: React.FC<FilterToolbarProps> = ({
@@ -76,7 +74,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
               }`}
             >
-              {district === 'All Districts' ? 'All Riyadh (الرياض)' : district}
+              {district === 'All Districts' ? 'All Riyadh' : district}
             </button>
           ))}
         </div>
@@ -129,7 +127,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
         
         {/* Property Type Dropdown */}
         <div className="col-span-2 sm:col-span-2 lg:col-span-3">
-          <label className="block text-[11px] font-bold text-gray-600 mb-1">نوع العقار (Property Type)</label>
+          <label className="block text-[11px] font-bold text-gray-600 mb-1">Property Type</label>
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
@@ -146,7 +144,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
         {/* Max Budget Slider */}
         <div className="col-span-2 sm:col-span-2 lg:col-span-3">
           <div className="flex justify-between text-[11px] font-bold text-gray-600 mb-1">
-            <span>الحد الأقصى للميزانية</span>
+            <span>Max Budget</span>
             <span className="text-[#C82021] font-mono-num font-extrabold">
               SAR {(maxPrice / 1000000).toFixed(1)}M
             </span>
@@ -164,7 +162,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
 
         {/* Minimum Bedrooms */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-          <label className="block text-[11px] font-bold text-gray-600 mb-1">غرف النوم (Beds)</label>
+          <label className="block text-[11px] font-bold text-gray-600 mb-1">Bedrooms</label>
           <select
             value={minBeds}
             onChange={(e) => setMinBeds(Number(e.target.value))}
@@ -179,17 +177,16 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
 
         {/* Sort By */}
         <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-          <label className="block text-[11px] font-bold text-gray-600 mb-1">الترتيب (Sort By)</label>
+          <label className="block text-[11px] font-bold text-gray-600 mb-1">Sort By</label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full bg-white border border-gray-300 rounded-xl px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-[#C82021] focus:ring-1 focus:ring-red-100 shadow-2xs"
           >
-            <option value="featured">Featured / AI Ranked</option>
+            <option value="featured">Featured / Recommended</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
             <option value="sqft-desc">Largest Area (m²)</option>
-            <option value="appreciation-desc">Highest Appreciation</option>
           </select>
         </div>
 
@@ -199,19 +196,20 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
             <button
               onClick={onOpenSearchPriceAlert}
               className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-xs font-bold transition-colors shadow-xs whitespace-nowrap"
-              title="تفعيل تنبيه لنتائج البحث وانخفاض الأسعار"
+              title="Save search and get alerts on price drops"
             >
               <Bell className="w-3.5 h-3.5" />
-              <span>تنبيه البحث</span>
+              <span>Save Search</span>
             </button>
           )}
 
           <button
             onClick={onResetFilters}
             className="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-white hover:bg-gray-50 text-xs font-semibold text-gray-700 transition-colors border border-gray-300 shadow-2xs whitespace-nowrap"
+            title="Reset filters"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span>إعادة ضبط</span>
+            <span>Reset</span>
           </button>
         </div>
       </div>

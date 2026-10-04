@@ -144,7 +144,7 @@ export const VirtualTourModal: React.FC<VirtualTourModalProps> = ({
           {selectedHotspot && (
             <div className="absolute left-6 bottom-6 z-30 max-w-xs bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-4 shadow-xl text-gray-900 animate-in fade-in slide-in-from-bottom-2">
               <div className="flex items-center justify-between pb-2 border-b border-gray-100">
-                <span className="text-xs font-bold text-[#C82021]">ميزة معمارية موثقة</span>
+                <span className="text-xs font-bold text-[#C82021]">Verified Architectural Feature</span>
                 <button
                   onClick={() => setSelectedHotspot(null)}
                   className="p-1 rounded-md text-gray-400 hover:text-gray-700"

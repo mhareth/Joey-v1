@@ -125,7 +125,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
                     ? 'bg-[#C82021] text-white font-bold'
                     : 'bg-white/90 hover:bg-white text-gray-700 hover:text-[#C82021]'
                 }`}
-                title={hasAlert ? 'تنبيه السعر مفعّل (Alert Active)' : 'تفعيل تنبيه انخفاض السعر (Set Price Alert)'}
+                title={hasAlert ? 'Price Alert Active' : 'Set Price Drop Alert'}
               >
                 <Bell className={`w-3.5 h-3.5 ${hasAlert ? 'fill-white text-white' : ''}`} />
               </button>
@@ -137,7 +137,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
                 onToggleSave(property);
               }}
               className="p-2 rounded-full bg-white/90 hover:bg-white text-gray-700 hover:text-[#C82021] transition-colors shadow-2xs"
-              title="Save Property (حفظ العقار)"
+              title="Save Property"
             >
               <Heart className={`w-3.5 h-3.5 ${isSaved ? 'fill-[#C82021] text-[#C82021]' : ''}`} />
             </button>
@@ -226,11 +226,11 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
             />
             <div className="truncate">
               <p className="text-[11px] font-bold text-gray-800 truncate">{property.agent.name}</p>
-              <p className="text-[10px] text-gray-500 truncate">REGA Fal Verified · {property.agent.company}</p>
+              <p className="text-[10px] text-gray-500 truncate">REGA Fal Verified · {property.agent.brokerage}</p>
             </div>
           </div>
 
-          {/* Actions: Chat & Offer */}
+          {/* Actions: Chat & View Details */}
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={(e) => {
@@ -242,16 +242,15 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
             >
               <MessageSquare className="w-3.5 h-3.5" />
             </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenDocumentPrep(property);
-              }}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-2xs transition-colors"
-            >
-              <FileText className="w-3 h-3" />
-              <span>Make Offer</span>
-            </button>
+            {onSelectProperty && (
+              <button
+                onClick={() => onSelectProperty(property)}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-2xs transition-colors"
+                title="View full property details & nearby amenities"
+              >
+                <span>Details</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -102,13 +102,12 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             </div>
             <div>
               <h3 className="text-base font-bold text-gray-900 flex items-center gap-1.5">
-                <span>تنبيه انخفاض السعر</span>
-                <span className="text-xs text-[#C82021] font-bold">Set Price Alert</span>
+                <span>Set Price Drop Alert</span>
               </h3>
               <p className="text-xs text-gray-500">
                 {isPropertySpecific 
                   ? property?.title 
-                  : `عقارات ${searchCriteria?.district || 'شمال الرياض'}`}
+                  : `Homes in ${searchCriteria?.district || 'Riyadh'}`}
               </p>
             </div>
           </div>
@@ -146,13 +145,13 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             {!isPropertySpecific && searchCriteria && (
               <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs space-y-1">
                 <span className="text-[10px] font-bold text-[#C82021] uppercase tracking-wider block">
-                  Search Criteria Alert (تنبيه معايير البحث)
+                  Search Criteria Alert
                 </span>
                 <p className="text-gray-800">
-                  حي: <strong>{searchCriteria.district}</strong> • نوع العقار: <strong>{searchCriteria.propertyType}</strong>
+                  District: <strong>{searchCriteria.district}</strong> • Type: <strong>{searchCriteria.propertyType}</strong>
                 </p>
                 <p className="text-gray-500">
-                  سقف الميزانية الحالي: <strong className="text-gray-900 font-mono-num">SAR {searchCriteria.maxBudget.toLocaleString()}</strong>
+                  Current budget ceiling: <strong className="text-gray-900 font-mono-num">SAR {searchCriteria.maxBudget.toLocaleString()}</strong>
                 </p>
               </div>
             )}
@@ -160,7 +159,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             {/* Threshold Selector: Presets */}
             <div>
               <label className="block text-xs font-bold text-gray-700 mb-2">
-                اختر نسبة أو قيمة انخفاض السعر المطلوبة:
+                Select target price drop percentage or value:
               </label>
               <div className="grid grid-cols-4 gap-2">
                 {[3, 5, 8, 10].map((pct) => (
@@ -187,10 +186,10 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             <div>
               <div className="flex justify-between items-baseline mb-1.5">
                 <span className="text-xs font-bold text-gray-700">
-                  السعر المستهدف للتنبيه (Target Price)
+                  Target Alert Price
                 </span>
                 <span className="text-xs font-bold text-emerald-700 font-mono-num">
-                  توفير SAR {calculatedSavings.toLocaleString()} (-{selectedDropPercent}%)
+                  Save SAR {calculatedSavings.toLocaleString()} (-{selectedDropPercent}%)
                 </span>
               </div>
               <div className="relative">
@@ -210,7 +209,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             {/* Channels & Notifications */}
             <div className="space-y-2 pt-1">
               <label className="block text-xs font-bold text-gray-700">
-                قنوات التنبيه الفوري:
+                Instant Notification Channels:
               </label>
               
               <div className="grid grid-cols-3 gap-2">
@@ -223,7 +222,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
                     onChange={(e) => setChannels({ ...channels, inApp: e.target.checked })}
                     className="accent-[#C82021]"
                   />
-                  <span>في التطبيق</span>
+                  <span>In-App</span>
                 </label>
 
                 <label className={`flex items-center gap-2 p-2.5 rounded-xl border cursor-pointer text-xs transition-colors ${
@@ -235,7 +234,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
                     onChange={(e) => setChannels({ ...channels, email: e.target.checked })}
                     className="accent-[#C82021]"
                   />
-                  <span>بريد إلكتروني</span>
+                  <span>Email</span>
                 </label>
 
                 <label className={`flex items-center gap-2 p-2.5 rounded-xl border cursor-pointer text-xs transition-colors ${
@@ -247,7 +246,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
                     onChange={(e) => setChannels({ ...channels, whatsapp: e.target.checked })}
                     className="accent-emerald-600"
                   />
-                  <span>واتساب / SMS</span>
+                  <span>WhatsApp</span>
                 </label>
               </div>
             </div>
@@ -256,7 +255,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-[11px] font-bold text-gray-600 mb-1">
-                  البريد الإلكتروني
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -267,7 +266,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
               </div>
               <div>
                 <label className="block text-[11px] font-bold text-gray-600 mb-1">
-                  رقم الواتساب
+                  WhatsApp Number
                 </label>
                 <input
                   type="tel"
@@ -282,7 +281,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
             <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs">
               <span className="text-gray-700 font-semibold flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#C82021]" />
-                توقيت الإشعار:
+                Frequency:
               </span>
               <div className="flex items-center gap-2">
                 <button
@@ -294,7 +293,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
-                  فوري (موصى به)
+                  Instant (Recommended)
                 </button>
                 <button
                   type="button"
@@ -305,7 +304,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
-                  ملخص صباحي
+                  Daily Digest
                 </button>
               </div>
             </div>
@@ -316,7 +315,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
               className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-xs transition-colors"
             >
               <Bell className="w-4 h-4" />
-              <span>تفعيل تنبيه انخفاض السعر • Set Alert</span>
+              <span>Activate Price Drop Alert</span>
             </button>
           </form>
         ) : (
@@ -327,24 +326,24 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
 
             <div className="space-y-2">
               <h3 className="text-lg font-bold text-gray-900">
-                تم تفعيل تنبيه السعر بنجاح!
+                Price Drop Alert Activated!
               </h3>
               <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
-                سنقوم بإشعارك فوراً عبر التطبيق، والبريد الإلكتروني <strong>{email}</strong>، والواتساب بمجرد قيام البائع أو الوسيط بتحديث السعر إلى <strong>SAR {customTargetPrice.toLocaleString()}</strong> أو أقل.
+                We will notify you immediately via in-app alerts, email (<strong>{email}</strong>), and WhatsApp as soon as the price drops to <strong>SAR {customTargetPrice.toLocaleString()}</strong> or lower.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-xs space-y-1 font-mono-num text-gray-600">
               <div className="flex justify-between">
-                <span>السعر الأصلي:</span>
+                <span>Original Price:</span>
                 <span className="text-gray-900 font-bold">SAR {currentPrice.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
-                <span>السعر المستهدف:</span>
+                <span>Target Price:</span>
                 <span className="text-emerald-700 font-bold">SAR {customTargetPrice.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
-                <span>مقدار التوفير:</span>
+                <span>Estimated Savings:</span>
                 <span className="text-[#C82021] font-bold">SAR {calculatedSavings.toLocaleString()} (-{selectedDropPercent}%)</span>
               </div>
             </div>
@@ -353,7 +352,7 @@ export const PriceAlertModal: React.FC<PriceAlertModalProps> = ({
               onClick={onClose}
               className="w-full py-3 rounded-xl bg-gray-900 hover:bg-black text-white font-bold text-xs transition-colors"
             >
-              تم وإغلاق
+              Done & Close
             </button>
           </div>
         )}

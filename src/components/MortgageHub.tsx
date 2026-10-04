@@ -3,14 +3,11 @@ import { Property, MortgageQuote } from '../types';
 import { MOCK_MORTGAGE_QUOTES } from '../data/mockProperties';
 import { 
   Calculator, 
-  DollarSign, 
   Award, 
-  CheckCircle2, 
   FileText, 
-  Sparkles,
-  ShieldCheck,
-  Building2,
-  X
+  Sparkles, 
+  ShieldCheck, 
+  X 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -26,10 +23,10 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
     selectedProperty ? selectedProperty.price : 4950000
   );
   const [downPaymentPercent, setDownPaymentPercent] = useState<number>(15);
-  const [financeType, setFinanceType] = useState<string>('Murabaha (مرابحة متوافقة مع الشريعة)');
+  const [financeType, setFinanceType] = useState<string>('Murabaha (Sharia-Compliant)');
   const [termYears, setTermYears] = useState<number>(25);
   const [showPreApprovalModal, setShowPreApprovalModal] = useState<boolean>(false);
-  const [applicantName, setApplicantName] = useState<string>('سعود بن عبدالله العتيبي (Saud Al-Otaibi)');
+  const [applicantName, setApplicantName] = useState<string>('Saud Al-Otaibi');
   const [preApprovalGenerated, setPreApprovalGenerated] = useState<boolean>(false);
 
   const downPaymentAmountSAR = Math.round(homePriceSAR * (downPaymentPercent / 100));
@@ -63,7 +60,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-[#C82021] text-xs font-bold mb-3">
             <Calculator className="w-3.5 h-3.5" />
-            <span>Redfin Mortgage • حاسبة التمويل العقاري المتوافقة مع الشريعة</span>
+            <span>Redfin Mortgage • Sharia-Compliant Home Loan Calculator</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight font-sans">
             Compare Today's Best Saudi Mortgage Rates
@@ -81,7 +78,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
             <h3 className="text-base font-bold text-gray-900 pb-3 border-b border-gray-100 flex items-center justify-between">
-              <span>Saudi Home Loan Simulator (حاسبة التمويل)</span>
+              <span>Saudi Home Loan Simulator</span>
               {selectedProperty && (
                 <span className="text-xs text-[#C82021] font-semibold">
                   Locked to {selectedProperty.title}
@@ -92,7 +89,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             {/* Home Price Slider */}
             <div>
               <div className="flex justify-between items-baseline mb-2">
-                <span className="text-xs font-bold text-gray-700">Property Price (سعر العقار بالريال السعودي)</span>
+                <span className="text-xs font-bold text-gray-700">Property Price (SAR)</span>
                 <span className="text-xl font-black text-gray-900 font-mono-num">
                   SAR {homePriceSAR.toLocaleString()}
                 </span>
@@ -117,7 +114,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             <div>
               <div className="flex justify-between items-baseline mb-2">
                 <span className="text-xs font-bold text-gray-700">
-                  Down Payment / الدفعة الأولى ({downPaymentPercent}%)
+                  Down Payment ({downPaymentPercent}%)
                 </span>
                 <span className="text-sm font-black text-[#C82021] font-mono-num">
                   SAR {downPaymentAmountSAR.toLocaleString()}
@@ -144,22 +141,22 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1.5">
-                  نوع الهيكل التمويلي (Sharia Structure)
+                  Sharia Financing Structure
                 </label>
                 <select
                   value={financeType}
                   onChange={(e) => setFinanceType(e.target.value)}
                   className="w-full bg-white border border-gray-300 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#C82021] shadow-2xs"
                 >
-                  <option>Murabaha (مرابحة متوافقة مع الشريعة)</option>
-                  <option>Ijara Forward Lease (إجارة موصوفة بالذمة)</option>
-                  <option>Sakani Subsidized Matrix (دعم سكني)</option>
+                  <option>Murabaha (Sharia-Compliant)</option>
+                  <option>Ijara Forward Lease (Forward Lease)</option>
+                  <option>Sakani Subsidized Matrix</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Loan Term (مدة التمويل)
+                  Loan Term
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {[15, 20, 25].map((yrs) => (
@@ -183,7 +180,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             <div>
               <h4 className="text-xs font-bold text-gray-700 uppercase tracking-wide mb-3 flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-[#C82021]" />
-                عروض البنوك السعودية المعتمدة اليوم (Verified Lenders)
+                Verified Saudi Lender Quotes Today
               </h4>
 
               <div className="space-y-2.5">
@@ -197,7 +194,6 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
                       <div>
                         <div className="flex items-center gap-2">
                           <h5 className="text-xs font-bold text-gray-900">{q.lenderName}</h5>
-                          <span className="text-[11px] text-gray-500">{q.lenderNameAr}</span>
                         </div>
                         <p className="text-[11px] text-gray-500 mt-0.5">{q.financeType} • {q.recommendedTag}</p>
                       </div>
@@ -225,7 +221,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
           <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-7 shadow-xs space-y-6">
             <div>
               <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Total Estimated Monthly Installment (القسط الإجمالي)
+                Total Estimated Monthly Payment
               </span>
               <div className="text-3xl font-black text-gray-900 font-mono-num mt-1">
                 SAR {totalMonthlySAR.toLocaleString()}
@@ -237,14 +233,14 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             <div className="space-y-3 text-xs">
               <div className="flex items-center justify-between pb-2 border-b border-gray-100">
                 <span className="text-gray-700">
-                  Monthly Bank Installment (قسط المرابحة)
+                  Principal & Bank Profit Installment
                 </span>
                 <span className="font-mono-num font-bold text-gray-900">SAR {monthlyInstallment.toLocaleString()}</span>
               </div>
 
               <div className="flex items-center justify-between pb-2 border-b border-gray-100">
                 <span className="text-gray-700">
-                  Takaful Life & Property Insurance (التأمين التكافلي)
+                  Takaful Life & Property Insurance
                 </span>
                 <span className="font-mono-num font-bold text-gray-900">SAR {estimatedInsuranceMonthly.toLocaleString()}</span>
               </div>
@@ -252,11 +248,11 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
               {/* RETT Tax Calculation */}
               <div className="p-3 rounded-xl bg-red-50/70 border border-red-100 space-y-1">
                 <div className="flex items-center justify-between font-bold text-[#C82021]">
-                  <span>ضريبة التصرفات العقارية (RETT 5%)</span>
+                  <span>Real Estate Transaction Tax (RETT 5%)</span>
                   <span className="font-mono-num">SAR {estimatedRETT.toLocaleString()}</span>
                 </div>
                 <p className="text-[11px] text-gray-600 leading-relaxed">
-                  * للمواطن المسكن الأول: إعفاء رسمي من الضريبة حتى SAR 1,000,000 من قيمة المسكن.
+                  * First-time Saudi homebuyer exemption applies to the first SAR 1,000,000 of property value.
                 </p>
               </div>
             </div>
@@ -291,7 +287,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             <div className="flex items-center justify-between pb-4 border-b border-gray-100">
               <div className="flex items-center gap-2">
                 <FileText className="w-5 h-5 text-[#C82021]" />
-                <h3 className="font-bold text-gray-900 text-base">شهادة الموافقة المبدئية على التمويل العقاري</h3>
+                <h3 className="font-bold text-gray-900 text-base">Mortgage Pre-Approval Qualification Certificate</h3>
               </div>
               <button onClick={() => setShowPreApprovalModal(false)} className="p-1 rounded-lg text-gray-400 hover:text-gray-700 bg-gray-100">
                 <X className="w-4 h-4" />
@@ -301,7 +297,7 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
             {!preApprovalGenerated ? (
               <div className="space-y-4 mt-5">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">اسم مقدم الطلب (Applicant Name)</label>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Applicant Name</label>
                   <input
                     type="text"
                     value={applicantName}
@@ -310,37 +306,37 @@ export const MortgageHub: React.FC<MortgageHubProps> = ({
                   />
                 </div>
                 <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-xs space-y-1 font-mono-num text-gray-700">
-                  <p>مبلغ التمويل المعتمد مبدئياً: <strong className="text-[#C82021]">SAR {loanAmountSAR.toLocaleString()}</strong></p>
-                  <p>الحد الأقصى لسعر العقار: <strong className="text-gray-900">SAR {homePriceSAR.toLocaleString()}</strong></p>
-                  <p>الدفعة الأولى المدفوعة: <strong className="text-emerald-700">SAR {downPaymentAmountSAR.toLocaleString()} ({downPaymentPercent}%)</strong></p>
-                  <p>هامش الربح المقفل: <strong>{activeQuote.profitRate}% مرابحة إسلامية لمدة 25 سنة</strong></p>
+                  <p>Pre-Approved Financing Amount: <strong className="text-[#C82021]">SAR {loanAmountSAR.toLocaleString()}</strong></p>
+                  <p>Maximum Property Price: <strong className="text-gray-900">SAR {homePriceSAR.toLocaleString()}</strong></p>
+                  <p>Down Payment: <strong className="text-emerald-700">SAR {downPaymentAmountSAR.toLocaleString()} ({downPaymentPercent}%)</strong></p>
+                  <p>Locked Profit Margin: <strong>{activeQuote.profitRate}% Islamic Murabaha for 25 Years</strong></p>
                 </div>
                 <button
                   onClick={handleGeneratePreApproval}
                   className="w-full py-3 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-xs transition-colors"
                 >
-                  إصدار خطاب الموافقة الموثق إلكترونياً
+                  Issue Verified Digital Pre-Approval Letter
                 </button>
               </div>
             ) : (
               <div className="mt-5 space-y-4">
                 <div className="p-5 rounded-xl bg-gray-50 border border-emerald-300 text-xs space-y-3 text-gray-800">
                   <div className="flex justify-between items-center border-b border-gray-200 pb-2">
-                    <span className="font-bold text-gray-900 tracking-wider font-mono-num">JOEY.PROPERTIES | جوي للعقارات</span>
-                    <span className="text-[10px] text-emerald-700 font-bold font-mono-num">موثق عبر نفاذ • ID #JOEY-KSA-2026</span>
+                    <span className="font-bold text-gray-900 tracking-wider font-mono-num">ESTATEIQ | RIYADH REAL ESTATE</span>
+                    <span className="text-[10px] text-emerald-700 font-bold font-mono-num">Verified via Nafath • ID #EIQ-KSA-2026</span>
                   </div>
                   <p className="text-xs leading-relaxed text-gray-700">
-                    تشهد منصة <strong>جوي للعقارات (joey.properties)</strong> بأن المستفيد: <strong>{applicantName}</strong> قد استوفى متطلبات الملاءة المالية والحصول على موافقة تمويل مبدئية لشراء عقار سكني بقيمة تصل إلى <strong>{homePriceSAR.toLocaleString()} ريال سعودي</strong> بتمويل معتمد قدره <strong>{loanAmountSAR.toLocaleString()} ريال سعودي</strong>.
+                    EstateIQ certifies that the applicant <strong>{applicantName}</strong> has met solvency and eligibility guidelines for preliminary mortgage pre-approval up to <strong>SAR {homePriceSAR.toLocaleString()}</strong> with an approved loan ceiling of <strong>SAR {loanAmountSAR.toLocaleString()}</strong>.
                   </p>
                   <p className="text-xs text-gray-500">
-                    تم التحقق من الالتزامات والقدرة الائتمانية عبر سمة (SIMAH). يقدم هذا الخطاب لتعزيز جدية العرض والشراء عبر البورصة العقارية.
+                    Credit obligations and debt burden ratio verified via SIMAH. This letter is valid for presenting with formal real estate purchase offers.
                   </p>
                 </div>
                 <button
                   onClick={() => setShowPreApprovalModal(false)}
                   className="w-full py-2.5 rounded-xl bg-gray-900 hover:bg-black text-white text-xs font-semibold"
                 >
-                  إغلاق
+                  Close
                 </button>
               </div>
             )}

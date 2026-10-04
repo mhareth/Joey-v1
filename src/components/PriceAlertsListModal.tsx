@@ -71,11 +71,8 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-bold text-gray-900 font-sans">
-                  تنبيهات أسعار العقارات المحفوظة
-                </h3>
-                <span className="text-xs text-[#C82021] font-bold">
                   Saved Price Alerts
-                </span>
+                </h3>
                 {triggeredCount > 0 && (
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-700 text-white animate-pulse">
                     {triggeredCount} New Drop{triggeredCount > 1 ? 's' : ''}
@@ -83,7 +80,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                 )}
               </div>
               <p className="text-xs text-gray-500">
-                متابعة فورية لتغيرات أسعار فلل وبنتهاوسات الرياض والتنبيه عند انخفاض السعر
+                Real-time tracking of price adjustments for Riyadh luxury villas & penthouses
               </p>
             </div>
           </div>
@@ -97,7 +94,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                 }}
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-xs font-bold transition-colors shadow-xs"
               >
-                + تنبيه جديد
+                + New Alert
               </button>
             )}
             <button
@@ -113,19 +110,19 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
         <div className="p-4 sm:p-5 bg-gray-50 border-b border-gray-200 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <div>
-              <span className="text-[11px] text-gray-500 block">إجمالي التنبيهات</span>
+              <span className="text-[11px] text-gray-500 block">Total Alerts</span>
               <span className="text-xl font-bold text-gray-900 font-mono-num">{alerts.length} Alerts</span>
             </div>
             <div className="h-8 w-px bg-gray-200" />
             <div>
-              <span className="text-[11px] text-gray-500 block">انخفاضات تم رصدها</span>
+              <span className="text-[11px] text-gray-500 block">Price Drops</span>
               <span className="text-xl font-bold text-emerald-700 font-mono-num">{triggeredCount} Triggered</span>
             </div>
             {totalSavingsSAR > 0 && (
               <>
                 <div className="h-8 w-px bg-gray-200 hidden sm:block" />
                 <div className="hidden sm:block">
-                  <span className="text-[11px] text-gray-500 block">إجمالي التوفير المرصود</span>
+                  <span className="text-[11px] text-gray-500 block">Total Tracked Savings</span>
                   <span className="text-xl font-bold text-[#C82021] font-mono-num">
                     SAR {totalSavingsSAR.toLocaleString()}
                   </span>
@@ -144,7 +141,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              الكل ({alerts.length})
+              All ({alerts.length})
             </button>
             <button
               onClick={() => setFilterTab('triggered')}
@@ -154,7 +151,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              انخفض السعر ({triggeredCount})
+              Price Drops ({triggeredCount})
             </button>
             <button
               onClick={() => setFilterTab('monitoring')}
@@ -164,7 +161,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              قيد المراقبة ({alerts.length - triggeredCount})
+              Monitoring ({alerts.length - triggeredCount})
             </button>
           </div>
         </div>
@@ -203,23 +200,23 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                       <div className="flex-1 min-w-0 space-y-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <h4 className="text-sm font-bold text-gray-900 truncate">
-                            {alert.propertyTitle || `تنبيه معايير: ${alert.district}`}
+                            {alert.propertyTitle || `Search Criteria: ${alert.district}`}
                           </h4>
 
                           {alert.isTriggered ? (
                             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-700 text-white">
                               <TrendingDown className="w-3 h-3" />
-                              انخفاض السعر رُصد! (-{alert.triggeredDetails?.dropPercent || alert.targetDropPercent}%)
+                              Price Drop Detected! (-{alert.triggeredDetails?.dropPercent || alert.targetDropPercent}%)
                             </span>
                           ) : (
                             <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 text-gray-600">
-                              قيد المراقبة الفورية
+                              Active Monitoring
                             </span>
                           )}
                         </div>
 
                         <p className="text-xs text-gray-500">
-                          {alert.district} • السعر المستهدف:{' '}
+                          {alert.district} • Target Price:{' '}
                           <strong className="text-gray-900 font-mono-num font-bold">
                             SAR {alert.targetPrice.toLocaleString()}
                           </strong>{' '}
@@ -237,12 +234,12 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                                 SAR {alert.triggeredDetails.newPrice.toLocaleString()}
                               </span>
                               <span className="text-[#C82021] font-bold">
-                                توفير: SAR {alert.triggeredDetails.savingsSAR.toLocaleString()}
+                                Save: SAR {alert.triggeredDetails.savingsSAR.toLocaleString()}
                               </span>
                             </>
                           ) : (
                             <>
-                              <span className="text-gray-500">السعر الحالي:</span>
+                              <span className="text-gray-500">Current Price:</span>
                               <span className="text-sm font-bold text-gray-900">
                                 SAR {alert.currentPrice.toLocaleString()}
                               </span>
@@ -263,7 +260,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                           title="Simulate instant price drop to test notification"
                         >
                           <Play className="w-3 h-3 fill-[#C82021]" />
-                          محاكاة انخفاض السعر
+                          Simulate Drop
                         </button>
                       )}
 
@@ -279,7 +276,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                               className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold"
                             >
                               <Eye className="w-3.5 h-3.5 text-[#C82021]" />
-                              معاينة العقار
+                              View Home
                             </button>
                           )}
 
@@ -292,7 +289,7 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                               className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-xs transition-colors active:scale-95 whitespace-nowrap"
                             >
                               <FileText className="w-3.5 h-3.5" />
-                              تقديم عرض الشراء
+                              Make Offer
                             </button>
                           )}
                         </div>
@@ -325,15 +322,15 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                   {/* Footer details */}
                   <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
                     <div className="flex items-center gap-3">
-                      <span>القنوات:</span>
-                      {alert.channels.inApp && <span className="text-[#C82021] font-semibold">تطبيق</span>}
-                      {alert.channels.email && <span>بريد: {alert.email}</span>}
-                      {alert.channels.whatsapp && <span className="text-emerald-700 font-semibold">واتساب</span>}
+                      <span>Channels:</span>
+                      {alert.channels.inApp && <span className="text-[#C82021] font-semibold">App</span>}
+                      {alert.channels.email && <span>Email: {alert.email}</span>}
+                      {alert.channels.whatsapp && <span className="text-emerald-700 font-semibold">WhatsApp</span>}
                     </div>
                     <span>
                       {alert.isTriggered && alert.triggeredDetails
-                        ? `انخفض: ${alert.triggeredDetails.date}`
-                        : `تم الإنشاء: ${new Date(alert.createdAt).toLocaleDateString('ar-SA')}`}
+                        ? `Triggered: ${alert.triggeredDetails.date}`
+                        : `Created: ${new Date(alert.createdAt).toLocaleDateString('en-US')}`}
                     </span>
                   </div>
                 </div>
@@ -345,10 +342,10 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
                 <Bell className="w-6 h-6" />
               </div>
               <p className="text-sm text-gray-800 font-semibold">
-                لا توجد تنبيهات في هذا القسم
+                No alerts found in this section
               </p>
               <p className="text-xs text-gray-500 max-w-sm mx-auto">
-                يمكنك تفعيل تنبيه انخفاض السعر لأي فيلا أو بنتهاوس في الرياض لتصلك رسالة فورية عبر التطبيق والواتساب.
+                You can set up price drop alerts on any property in Riyadh to receive instant notifications via app, email, and WhatsApp.
               </p>
             </div>
           )}
@@ -358,14 +355,14 @@ export const PriceAlertsListModal: React.FC<PriceAlertsListModalProps> = ({
         <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs text-gray-600">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>تحديثات الأسعار متطابقة مع صفقات البورصة العقارية</span>
+            <span>Price updates verified with real-time property exchange feeds</span>
           </div>
 
           <button
             onClick={onClose}
             className="px-4 py-2 rounded-xl bg-gray-900 hover:bg-black text-white font-semibold text-xs transition-colors"
           >
-            إغلاق
+            Close
           </button>
         </div>
       </div>

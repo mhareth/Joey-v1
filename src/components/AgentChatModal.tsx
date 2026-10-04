@@ -5,9 +5,7 @@ import {
   Send, 
   Calendar, 
   CheckCircle2, 
-  Sparkles, 
-  Loader2,
-  FileCheck
+  Loader2
 } from 'lucide-react';
 
 interface AgentChatModalProps {
@@ -27,7 +25,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
     {
       id: 'm1',
       sender: 'agent',
-      text: `مرحباً بك! أنا ${agent.name}، وسيطك العقاري المرخص برخصة فال في ${property.district} بالرياض. يسعدني الإجابة عن مواصفات ${property.title}، أو ترتيب موعد معاينة ميدانية أو جولة افتراضية خاصة.`,
+      text: `Hello! I am ${agent.name}, your REGA licensed real estate broker in ${property.district}, Riyadh. I am delighted to assist with specifications for ${property.title}, or arrange a private in-person walkthrough or live virtual tour.`,
       timestamp: 'Just now',
     }
   ]);
@@ -36,7 +34,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
   const [isTyping, setIsTyping] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [selectedTourType, setSelectedTourType] = useState<'in_person' | 'virtual'>('in_person');
-  const [selectedSlot, setSelectedSlot] = useState('السبت، 4:00 عصراً');
+  const [selectedSlot, setSelectedSlot] = useState('Saturday, 4:00 PM');
   const [tourBooked, setTourBooked] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -80,7 +78,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
       const replyMsg: AgentChatMessage = {
         id: `a-${Date.now()}`,
         sender: 'agent',
-        text: data.reply || `شكراً لتواصلك! قمت بتسجيل استفسارك بخصوص ${property.title} وجاهز للمساعدة.`,
+        text: data.reply || `Thank you for reaching out! I've noted your question regarding ${property.title} and am available to assist with all details or formal inquiries.`,
         timestamp: 'Just now',
       };
       setMessages(prev => [...prev, replyMsg]);
@@ -89,7 +87,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
       const fallbackMsg: AgentChatMessage = {
         id: `a-${Date.now()}`,
         sender: 'agent',
-        text: `شكراً لاهتمامك بـ ${property.title}! يسعدني الإجابة عن كافة استفساراتك أو حجز موعد معاينة هذا الأسبوع.`,
+        text: `Thank you for your interest in ${property.title}! I would be happy to answer your questions or reserve a private showing this week.`,
         timestamp: 'Just now',
       };
       setMessages(prev => [...prev, fallbackMsg]);
@@ -103,7 +101,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
     const confirmationMsg: AgentChatMessage = {
       id: `sys-${Date.now()}`,
       sender: 'system',
-      text: `تم تأكيد الموعد بنجاح! ${selectedTourType === 'in_person' ? 'معاينة ميدانية خاصة' : 'جولة افتراضية مباشرة'} محددة بتاريخ ${selectedSlot} في ${property.address}. تم إرسال تفاصيل الموعد إلى بريدك الإلكتروني ورقم هاتفك.`,
+      text: `Appointment confirmed! ${selectedTourType === 'in_person' ? 'Private in-person showing' : 'Live virtual walkthrough'} scheduled for ${selectedSlot} at ${property.address}. Calendar invite and verification details have been sent.`,
       timestamp: 'Just now',
       actionPayload: {
         type: 'tour_booked',
@@ -164,7 +162,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
 
         {/* Property Context Strip */}
         <div className="px-6 py-2 bg-gray-50 border-b border-gray-200 flex items-center justify-between text-xs text-gray-600">
-          <span className="truncate">العقار: <strong className="text-gray-900 font-bold">{property.title}</strong></span>
+          <span className="truncate">Property: <strong className="text-gray-900 font-bold">{property.title}</strong></span>
           <span className="font-mono-num text-[#C82021] font-bold shrink-0 ml-2">
             SAR {property.price.toLocaleString()}
           </span>
@@ -181,7 +179,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
                 <div key={msg.id} className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 space-y-1">
                   <div className="flex items-center gap-1.5 font-bold">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>تم تأكيد الموعد في التقويم</span>
+                    <span>Appointment Confirmed on Calendar</span>
                   </div>
                   <p className="leading-relaxed">{msg.text}</p>
                 </div>
@@ -223,7 +221,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
           {isTyping && (
             <div className="flex items-center gap-2 text-xs text-gray-400 p-2">
               <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C82021]" />
-              <span>الوسيط يكتب رداً الآن...</span>
+              <span>Broker is typing a response...</span>
             </div>
           )}
           <div ref={messagesEndRef} />
@@ -232,10 +230,10 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
         {/* Quick Action Suggested Prompts */}
         <div className="px-4 py-2 bg-gray-50 border-t border-gray-200 flex items-center gap-2 overflow-x-auto no-scrollbar">
           {[
-            'هل السعر قابل للتفاوض البسيط؟',
-            'هل يوجد شهادة إتمام بناء وكود سعودي؟',
-            'ما هي الضمانات الإنشائية المتوفرة؟',
-            'أرغب بتقديم عرض رسمي بالعربون'
+            'Is the price negotiable?',
+            'Is there a building completion certificate?',
+            'What structural warranties are provided?',
+            'I would like to submit a formal purchase offer'
           ].map((prompt, idx) => (
             <button
               key={idx}
@@ -254,7 +252,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="اكتب استفسارك للوسيط المرخص..."
+              placeholder="Type your inquiry for the licensed broker..."
               className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-xs text-gray-900 focus:outline-none focus:border-[#C82021] shadow-2xs"
             />
             <button
@@ -274,7 +272,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-[#C82021]" />
-                  <h4 className="font-bold text-gray-900 text-sm">حجز موعد معاينة</h4>
+                  <h4 className="font-bold text-gray-900 text-sm">Schedule a Property Showing</h4>
                 </div>
                 <button
                   onClick={() => setShowBookingModal(false)}
@@ -294,7 +292,7 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
                       : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
-                  🚶 معاينة ميدانية
+                  🚶 In-Person Walkthrough
                 </button>
                 <button
                   onClick={() => setSelectedTourType('virtual')}
@@ -304,23 +302,23 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
                       : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                   }`}
                 >
-                  💻 جولة افتراضية مباشرة
+                  💻 Live Virtual Tour
                 </button>
               </div>
 
               {/* Time Slots */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-2">
-                  اختر اليوم والوقت المناسب
+                  Select Preferred Date & Time Slot
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {[
-                    'غداً، 10:30 صباحاً',
-                    'غداً، 4:00 عصراً',
-                    'السبت، 11:00 صباحاً',
-                    'السبت، 4:00 عصراً',
-                    'الأحد، 5:00 مساءً',
-                    'الإثنين، 4:30 عصراً',
+                    'Tomorrow, 10:30 AM',
+                    'Tomorrow, 4:00 PM',
+                    'Saturday, 11:00 AM',
+                    'Saturday, 4:00 PM',
+                    'Sunday, 5:00 PM',
+                    'Monday, 4:30 PM',
                   ].map((slot) => (
                     <button
                       key={slot}
@@ -346,12 +344,12 @@ export const AgentChatModal: React.FC<AgentChatModalProps> = ({
                 {tourBooked ? (
                   <>
                     <CheckCircle2 className="w-4 h-4" />
-                    تم تأكيد الحجز!
+                    Appointment Confirmed!
                   </>
                 ) : (
                   <>
                     <Calendar className="w-4 h-4" />
-                    تأكيد الموعد مع {agent.name}
+                    Confirm Appointment with {agent.name}
                   </>
                 )}
               </button>

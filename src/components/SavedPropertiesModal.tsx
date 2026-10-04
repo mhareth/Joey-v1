@@ -8,6 +8,7 @@ interface SavedPropertiesModalProps {
   onRemoveSaved: (property: Property) => void;
   onOpenVirtualTour: (property: Property) => void;
   onOpenDocumentPrep: (property: Property) => void;
+  onSelectProperty?: (property: Property) => void;
 }
 
 export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
@@ -16,6 +17,7 @@ export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
   onRemoveSaved,
   onOpenVirtualTour,
   onOpenDocumentPrep,
+  onSelectProperty,
 }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-200">
@@ -24,7 +26,7 @@ export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-[#C82021] fill-[#C82021]" />
             <h3 className="font-bold text-gray-900 text-base">
-              العقارات المحفوظة • Saved Homes ({savedProperties.length})
+              Saved Homes ({savedProperties.length})
             </h3>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 bg-gray-100">
@@ -68,15 +70,28 @@ export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
                     <Eye className="w-3.5 h-3.5 text-[#C82021]" />
                   </button>
 
+                  {onSelectProperty && (
+                    <button
+                      onClick={() => {
+                        onSelectProperty(prop);
+                        onClose();
+                      }}
+                      className="px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-xs font-bold shadow-xs transition-colors"
+                      title="View full property details & nearby amenities"
+                    >
+                      Details
+                    </button>
+                  )}
+
                   <button
                     onClick={() => {
                       onOpenDocumentPrep(prop);
                       onClose();
                     }}
-                    className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-xs font-bold shadow-xs"
+                    className="p-2 rounded-xl bg-white border border-gray-200 hover:bg-gray-100 text-gray-700 text-xs font-semibold"
+                    title="Draft purchase offer"
                   >
                     <FileText className="w-3.5 h-3.5" />
-                    <span>Make Offer</span>
                   </button>
 
                   <button
@@ -92,8 +107,8 @@ export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
           ) : (
             <div className="py-12 text-center text-gray-500 space-y-2">
               <Heart className="w-8 h-8 text-gray-300 mx-auto" />
-              <p className="text-sm font-semibold text-gray-800">لم تقم بحفظ أي عقارات بعد</p>
-              <p className="text-xs">اضغط على أيقونة القلب في أي بطاقة عقار لحفظها في قائمتك.</p>
+              <p className="text-sm font-semibold text-gray-800">No saved homes yet</p>
+              <p className="text-xs">Click the heart icon on any home listing to save it to your favorites.</p>
             </div>
           )}
         </div>
@@ -103,7 +118,7 @@ export const SavedPropertiesModal: React.FC<SavedPropertiesModalProps> = ({
             onClick={onClose}
             className="px-4 py-2 rounded-xl bg-gray-900 hover:bg-black text-white text-xs font-semibold"
           >
-            إغلاق
+            Close
           </button>
         </div>
       </div>

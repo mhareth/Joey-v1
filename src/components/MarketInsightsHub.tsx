@@ -60,7 +60,7 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-[#C82021] text-xs font-bold mb-3">
             <TrendingUp className="w-3.5 h-3.5" />
-            <span>Redfin Data Center • مؤشرات عقارات الرياض الحية</span>
+            <span>Redfin Data Center • Live Riyadh Housing Market Trends</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight font-sans">
             Real-Time Riyadh Housing Market
@@ -102,7 +102,7 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
             {aiReport?.temperatureScore || 92}<span className="text-sm text-gray-400 font-normal">/100</span>
           </div>
           <span className="inline-block mt-1 text-[11px] font-bold text-[#C82021]">
-            {aiReport?.marketVerdict || 'High-Demand Expansion (سوق نشط)'}
+            {aiReport?.marketVerdict || 'High-Demand Expansion (Seller Market)'}
           </span>
         </div>
 
@@ -165,7 +165,7 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-[#C82021]" />
                 <h3 className="text-base font-bold text-gray-900">
-                  تقرير الخبير الاقتصادي العقاري • {selectedDistrict}, Riyadh
+                  Real Estate Economist Briefing • {selectedDistrict}, Riyadh
                 </h3>
               </div>
               {isLoading && (
@@ -179,7 +179,7 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
             <div className="mt-5 space-y-4">
               <div className="p-4 rounded-xl bg-red-50/60 border border-red-100">
                 <h4 className="text-xs font-bold text-[#C82021] uppercase tracking-wide">
-                  Strategic Executive Summary (الملخص التنفيذي)
+                  Strategic Executive Summary
                 </h4>
                 <p className="text-sm text-gray-800 mt-1 leading-relaxed">
                   {aiReport?.summary || 'Analyzing current market fundamentals and capital inflows...'}
@@ -189,13 +189,13 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
               {/* Key Drivers */}
               <div>
                 <h4 className="text-xs font-bold text-gray-700 uppercase tracking-wide mb-2.5">
-                  محركات النمو الرئيسية في الرياض (Core Market Drivers)
+                  Core Real Estate Market Drivers in Riyadh
                 </h4>
                 <div className="space-y-2">
                   {(aiReport?.keyDrivers || [
                     'Strategic Northern Riyadh expansion corridor anchored by KAFD, Boulevard, and New Murabba',
                     'Exemption on Real Estate Transaction Tax (RETT 5%) up to SAR 1,000,000 for first-time Saudi home buyers',
-                    'Stringent Saudi Building Code and mandatory 10-year insurance against latent defects (تأمين ملاذ) bolstering buyer confidence'
+                    'Stringent Saudi Building Code and mandatory 10-year insurance against latent defects (Malath Insurance) bolstering buyer confidence'
                   ]).map((driver: string, idx: number) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C82021] mt-1.5 shrink-0" />
@@ -231,7 +231,7 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
           <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
             <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2 mb-4">
               <BarChart3 className="w-4 h-4 text-[#C82021]" />
-              Median Price per SqM Growth in Northern Riyadh (تطور سعر المتر المربع)
+              Median Price per SqM Growth in Northern Riyadh
             </h3>
             
             <div className="space-y-3">
@@ -303,10 +303,10 @@ export const MarketInsightsHub: React.FC<MarketInsightsHubProps> = ({
           {/* Investment Cap Rate Guide */}
           <div className="bg-red-50/50 border border-red-100 rounded-2xl p-5 shadow-xs">
             <h4 className="text-xs font-bold text-[#C82021] uppercase tracking-wide mb-1">
-              عائد الاستثمار العقاري في الرياض
+              Investment Yield & Rental Cap Rates
             </h4>
             <p className="text-xs text-gray-700 leading-relaxed">
-              تحقق الفلل السكنية الفاخرة والبنتهاوسات في شمال الرياض عوائد إيجارية صافية تتراوح بين <strong>5.6% و 7.7% سنوياً</strong> مع نمو رأسمالي استثنائي بدعم مشاريع الرياض الكبرى (كافد، البوليفارد، حديقة الملك سلمان، والمربع الجديد).
+              Prime residential villas and luxury penthouses in Northern Riyadh deliver net rental yields ranging between <strong>5.6% and 7.7% annually</strong>, alongside capital growth propelled by Vision 2030 projects (KAFD, King Salman Park, and New Murabba).
             </p>
           </div>
         </div>

@@ -99,6 +99,24 @@ export interface Property {
     plumbingYears: number;
     electricalYears: number;
   };
+  nearbyAmenities?: NearbyAmenity[];
+}
+
+export interface NearbyAmenity {
+  id: string;
+  name: string;
+  nameAr: string;
+  type: 'school' | 'hospital' | 'park';
+  distanceKm: number;
+  driveTimeMins: number;
+  rating: number;
+  reviewsCount?: number;
+  address: string;
+  curriculumOrSpecialty?: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export interface BuyerProfile {
@@ -120,7 +138,7 @@ export interface MortgageQuote {
   lenderName: string;
   lenderNameAr: string;
   lenderLogo: string;
-  financeType: 'Murabaha (مرابحة)' | 'Ijara (إجارة)' | 'Subsidized Sakani (سكني)';
+  financeType: 'Murabaha' | 'Ijara' | 'Subsidized Sakani' | string;
   profitRate: number; // Annual profit rate %
   apr: number;
   monthlyInstallment: number; // SAR

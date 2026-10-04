@@ -13,7 +13,7 @@ import {
   Bell
 } from 'lucide-react';
 
-export type NavTab = 'explore' | 'recommendations' | 'market' | 'sell' | 'mortgage' | 'documents';
+export type NavTab = 'explore' | 'market' | 'mortgage' | 'recommendations' | 'sell';
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -53,15 +53,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="text-xl font-black tracking-tight text-gray-900 font-sans">
                   joey<span className="text-[#C82021]">.properties</span>
                 </span>
-                <span className="text-xs font-bold text-gray-700 font-sans tracking-wide">
-                  جوي للعقارات
-                </span>
                 <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  <ShieldCheck className="w-2.5 h-2.5" /> REGA فال
+                  <ShieldCheck className="w-2.5 h-2.5" /> REGA Fal Licensed
                 </span>
               </div>
               <p className="text-[11px] text-gray-500 font-medium hidden sm:block">
-                منصة الصفقات والذكاء العقاري السعودي • Saudi Real Estate Intelligence
+                Saudi Real Estate Intelligence & Property Marketplace
               </p>
             </div>
           </div>
@@ -74,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="ابحث بالحي، المدينة، أو الرمز (حطين، الملقا، كافد)..."
+                placeholder="Search by neighborhood, district, or landmark (Hittin, Al Malqa, KAFD)..."
                 className="w-full px-3 py-2 text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent"
               />
               {searchQuery ? (
@@ -82,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => setSearchQuery('')}
                   className="px-2 text-xs text-gray-400 hover:text-gray-600"
                 >
-                  مسح
+                  Clear
                 </button>
               ) : null}
               <button
@@ -105,19 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
-              خريطة العقارات
-            </button>
-
-            <button
-              onClick={() => setActiveTab('recommendations')}
-              className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-lg transition-colors ${
-                activeTab === 'recommendations'
-                  ? 'text-[#C82021] bg-red-50'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              المطابقة الذكية
+              Explore Homes
             </button>
 
             <button
@@ -129,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <TrendingUp className="w-3.5 h-3.5" />
-              مؤشرات السوق
+              Market Trends
             </button>
 
             <button
@@ -141,19 +126,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <Calculator className="w-3.5 h-3.5" />
-              حاسبة التمويل
+              Mortgage Calculator
             </button>
 
             <button
-              onClick={() => setActiveTab('documents')}
+              onClick={() => setActiveTab('recommendations')}
               className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-lg transition-colors ${
-                activeTab === 'documents'
+                activeTab === 'recommendations'
                   ? 'text-[#C82021] bg-red-50'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
-              <FileText className="w-3.5 h-3.5" />
-              العقود المعتمدة
+              <Sparkles className="w-3.5 h-3.5" />
+              Smart Match
             </button>
           </nav>
 
@@ -167,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'bg-red-50 border-red-200 text-[#C82021]'
                   : 'bg-white border-gray-200 text-gray-700 hover:text-[#C82021] hover:border-red-200'
               }`}
-              title="تنبيهات أسعار العقارات (Saved Price Alerts)"
+              title="Saved Price Alerts"
             >
               <Bell className="w-4 h-4" />
               {priceAlertsCount > 0 && (
@@ -183,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenSaved}
               className="relative p-2.5 rounded-xl bg-white border border-gray-200 text-gray-700 hover:text-[#C82021] hover:border-red-200 transition-all"
-              title="Saved Properties (العقارات المحفوظة)"
+              title="Saved Properties"
             >
               <Heart className="w-4 h-4" />
               {savedCount > 0 && (
@@ -199,7 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border border-[#C82021] text-[#C82021] hover:bg-red-50 transition-colors"
             >
               <Home className="w-3.5 h-3.5" />
-              أعلن عن عقارك
+              Sell Your Home
             </button>
           </div>
         </div>
@@ -212,15 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               activeTab === 'explore' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
             }`}
           >
-            خريطة العقارات
-          </button>
-          <button
-            onClick={() => setActiveTab('recommendations')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
-              activeTab === 'recommendations' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
-            }`}
-          >
-            المطابقة الذكية
+            Explore
           </button>
           <button
             onClick={() => setActiveTab('market')}
@@ -228,15 +205,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               activeTab === 'market' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
             }`}
           >
-            مؤشرات السوق
-          </button>
-          <button
-            onClick={() => setActiveTab('sell')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
-              activeTab === 'sell' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
-            }`}
-          >
-            تقييم وبيع
+            Market Trends
           </button>
           <button
             onClick={() => setActiveTab('mortgage')}
@@ -244,15 +213,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               activeTab === 'mortgage' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
             }`}
           >
-            تمويل عقاري
+            Mortgage
           </button>
           <button
-            onClick={() => setActiveTab('documents')}
+            onClick={() => setActiveTab('recommendations')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
-              activeTab === 'documents' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
+              activeTab === 'recommendations' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
             }`}
           >
-            العقود
+            Smart Match
+          </button>
+          <button
+            onClick={() => setActiveTab('sell')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+              activeTab === 'sell' ? 'bg-[#C82021] text-white' : 'text-gray-600 bg-gray-100'
+            }`}
+          >
+            Sell
           </button>
         </div>
       </div>

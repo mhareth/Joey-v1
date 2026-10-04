@@ -32,13 +32,10 @@ export const PriceDropToast: React.FC<PriceDropToastProps> = ({
               <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-emerald-700 text-white">
                 Price Drop Alert!
               </span>
-              <span className="text-xs font-bold text-gray-900">
-                تنبيه انخفاض السعر
-              </span>
             </div>
 
             <h4 className="text-xs font-bold text-gray-800 line-clamp-1">
-              {alert.propertyTitle || `عقارات ${alert.district}`}
+              {alert.propertyTitle || `Homes in ${alert.district}`}
             </h4>
 
             {details && (
@@ -50,13 +47,13 @@ export const PriceDropToast: React.FC<PriceDropToastProps> = ({
                   SAR {details.newPrice.toLocaleString()}
                 </span>
                 <span className="text-[#C82021] font-bold text-[11px]">
-                  (وفرت SAR {details.savingsSAR.toLocaleString()})
+                  (Save SAR {details.savingsSAR.toLocaleString()})
                 </span>
               </div>
             )}
 
             <p className="text-[11px] text-gray-500">
-              تم إرسال إشعار فوري إلى واتساب وبريدك {alert.email}.
+              Instant notification sent to your WhatsApp and email: {alert.email}
             </p>
           </div>
         </div>
@@ -75,7 +72,7 @@ export const PriceDropToast: React.FC<PriceDropToastProps> = ({
           onClick={onClose}
           className="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold"
         >
-          لاحقاً
+          Dismiss
         </button>
 
         {property && (
@@ -88,7 +85,7 @@ export const PriceDropToast: React.FC<PriceDropToastProps> = ({
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold"
             >
               <Eye className="w-3.5 h-3.5 text-[#C82021]" />
-              معاينة العقار
+              View Home
             </button>
 
             {onOpenDocumentPrep && (
@@ -100,7 +97,7 @@ export const PriceDropToast: React.FC<PriceDropToastProps> = ({
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white font-bold text-xs shadow-xs transition-colors active:scale-95"
               >
                 <FileText className="w-3.5 h-3.5" />
-                تقديم عرض بالسعر المخفض
+                Make Offer at Reduced Price
               </button>
             )}
           </>

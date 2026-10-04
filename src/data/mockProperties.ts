@@ -3,13 +3,13 @@ import { Property, MortgageQuote, PriceAlert } from '../types';
 export const INITIAL_PROPERTIES: Property[] = [
   {
     id: 'prop-riyadh-hittin-palace',
-    title: 'The Hittin Sovereign Villa | قصر حطين المودرن',
-    titleAr: 'قصر حطين العصري بإطلالة قريبة من البوليفارد وكافد',
+    title: 'The Hittin Sovereign Villa',
+    titleAr: 'The Hittin Sovereign Villa',
     tagline: 'Salmanic modern architecture with private courtyard, elevator, infinity pool, and luxury driver & maid quarters',
     price: 8900000,
     originalPrice: 9400000,
     address: 'Prince Turki Ibn Abdulaziz Al Awwal Rd, Hittin',
-    district: 'Hittin (حي حطين)',
+    district: 'Hittin',
     city: 'Riyadh',
     zip: '13516',
     coordinates: {
@@ -64,7 +64,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'The Grand Najdi Majlis (المجلس الرئيسي)',
+        name: 'The Grand Najdi Majlis',
         sqft: 140,
         imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Oud Melody & Gentle Fountain Water',
@@ -77,7 +77,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       },
       {
         id: 'room-2',
-        name: 'Courtyard Pool & Sunken Firepit (الفناء والمسبح)',
+        name: 'Courtyard Pool & Sunken Firepit',
         sqft: 220,
         imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Relaxing Pool Waterfall & Evening Breeze',
@@ -89,7 +89,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       },
       {
         id: 'room-3',
-        name: 'Show Kitchen & Dining Pavilion (المطبخ الإيطالي)',
+        name: 'Show Kitchen & Dining Pavilion',
         sqft: 95,
         imageUrl: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Culinary Elegance',
@@ -100,7 +100,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       },
       {
         id: 'room-4',
-        name: 'Master Suite & Skyline Balcony (جناح الماستر الملكي)',
+        name: 'Master Suite & Skyline Balcony',
         sqft: 120,
         imageUrl: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Peaceful Night Ambience',
@@ -112,7 +112,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-1',
-      name: 'Faisal Al-Otaibi | فيصل العتيبي',
+      name: 'Faisal Al-Otaibi',
       title: 'Senior Luxury Property Advisor',
       brokerage: 'Diriyah & Northern Riyadh Estates',
       phone: '+966 50 894 4120',
@@ -122,7 +122,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 184,
       salesVolume: 'SAR 420M+ Closed in 2025',
       activeListingsCount: 8,
-      languages: ['Arabic (العربية)', 'English'],
+      languages: ['English', 'Arabic'],
       responseTime: 'Under 5 mins',
       bio: 'Certified REGA Real Estate Broker specialized in off-market luxury estates, private palaces, and prime Northern Riyadh enclaves.',
       falLicense: 'FAL-1200018942'
@@ -130,13 +130,13 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'prop-riyadh-kafd-penthouse',
-    title: 'The KAFD Highline Sky Penthouse | بنتهاوس كافد البانورامي',
-    titleAr: 'بنتهاوس فاخر في أبراج مركز الملك عبدالله المالي',
+    title: 'The KAFD Highline Sky Penthouse',
+    titleAr: 'The KAFD Highline Sky Penthouse',
     tagline: 'Unobstructed 360° views over KAFD financial district towers, private sky pool, and direct metro link',
     price: 5450000,
     originalPrice: 5750000,
     address: 'KAFD Tower 4.08, King Fahd Road, Riyadh',
-    district: 'KAFD (مركز الملك عبدالله المالي)',
+    district: 'KAFD',
     city: 'Riyadh',
     zip: '13519',
     coordinates: {
@@ -190,7 +190,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'The Skyline Grand Salon (الصالون البانورامي)',
+        name: 'The Skyline Grand Salon',
         sqft: 160,
         imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Gentle High-Altitude Breeze & Metro Humming',
@@ -202,7 +202,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-2',
-      name: 'Nouf Al-Sudairi | نوف السديري',
+      name: 'Nouf Al-Sudairi',
       title: 'Managing Director, Commercial & Sky Residences',
       brokerage: 'KAFD Private Office Realty',
       phone: '+966 55 421 9088',
@@ -212,7 +212,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 142,
       salesVolume: 'SAR 310M+ in 2025',
       activeListingsCount: 6,
-      languages: ['Arabic (العربية)', 'English', 'French'],
+      languages: ['English', 'Arabic', 'French'],
       responseTime: 'Under 10 mins',
       bio: 'Leading luxury high-rise real estate advisor in KAFD and Olaya with extensive institutional transaction expertise.',
       falLicense: 'FAL-1100092314'
@@ -220,13 +220,13 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'prop-riyadh-almalqa-smart-villa',
-    title: 'Al Malqa Contemporary Smart Villa | فيلا الملقا الذكية',
-    titleAr: 'فيلا مودرن ذكية في حي الملقا مع مسبح ومصعد',
+    title: 'Al Malqa Contemporary Smart Villa',
+    titleAr: 'Al Malqa Contemporary Smart Villa',
     tagline: 'Brand new luxury modern villa on 20m street with basement courtyard, rooftop sky lounge, and private elevator',
     price: 4950000,
     originalPrice: 5200000,
     address: 'Anas Ibn Malik Rd, Al Malqa District',
-    district: 'Al Malqa (حي الملقا)',
+    district: 'Al Malqa',
     city: 'Riyadh',
     zip: '13524',
     coordinates: {
@@ -280,7 +280,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'Family Living & Garden Overlook (صالة العائلة والحديقة)',
+        name: 'Family Living & Garden Overlook',
         sqft: 90,
         imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Modern Family Living Ambience',
@@ -292,7 +292,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-3',
-      name: 'Rakan Al-Ghamdi | راكان الغامدي',
+      name: 'Rakan Al-Ghamdi',
       title: 'Principal Residential Broker',
       brokerage: 'Al Malqa Real Estate Advisory',
       phone: '+966 54 812 7700',
@@ -302,7 +302,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 165,
       salesVolume: 'SAR 280M+ in Northern Riyadh',
       activeListingsCount: 11,
-      languages: ['Arabic (العربية)', 'English'],
+      languages: ['English', 'Arabic'],
       responseTime: 'Under 5 mins',
       bio: 'Specialist in high-end Al Malqa, Al Yasmin and Al Narjis residential villas and land plots.',
       falLicense: 'FAL-1200034189'
@@ -310,12 +310,12 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'prop-riyadh-alnakheel-mansion',
-    title: 'The Palm Enclave Estate | قصر النخيل الغربي',
-    titleAr: 'قصر فخم في حي النخيل الغربي مع مسبح خاص وحديقة شاسعة',
+    title: 'The Palm Enclave Estate',
+    titleAr: 'The Palm Enclave Estate',
     tagline: 'Ultra-exclusive private residence in West Nakheel near King Saud University and Digital City',
     price: 11800000,
     address: 'Imam Saud Ibn Abdulaziz Bin Mohammed Rd, Al Nakheel',
-    district: 'Al Nakheel (حي النخيل)',
+    district: 'Al Nakheel',
     city: 'Riyadh',
     zip: '12384',
     coordinates: {
@@ -369,7 +369,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'The Atrium & Olive Tree Sanctuary (بهو شجرة الزيتون)',
+        name: 'The Atrium & Olive Tree Sanctuary',
         sqft: 180,
         imageUrl: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Courtyard Water Cascade & Birds',
@@ -381,7 +381,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-1',
-      name: 'Faisal Al-Otaibi | فيصل العتيبي',
+      name: 'Faisal Al-Otaibi',
       title: 'Senior Luxury Property Advisor',
       brokerage: 'Diriyah & Northern Riyadh Estates',
       phone: '+966 50 894 4120',
@@ -391,7 +391,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 184,
       salesVolume: 'SAR 420M+ Closed in 2025',
       activeListingsCount: 8,
-      languages: ['Arabic (العربية)', 'English'],
+      languages: ['English', 'Arabic'],
       responseTime: 'Under 5 mins',
       bio: 'Certified REGA Real Estate Broker specialized in off-market luxury estates, private palaces, and prime Northern Riyadh enclaves.',
       falLicense: 'FAL-1200018942'
@@ -399,13 +399,13 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'prop-riyadh-alyasmin-townhome',
-    title: 'The Jasmine Modern Duplex Villa | تاون هاوس الياسمين',
-    titleAr: 'دوبلكس عصري مستقل في حي الياسمين مع جلسة سطح فاخرة',
+    title: 'The Jasmine Modern Duplex Villa',
+    titleAr: 'The Jasmine Modern Duplex Villa',
     tagline: 'Turnkey independent modern duplex villa on 15m street, rooftop outdoor cinema, and smart lock access',
     price: 2850000,
     originalPrice: 2980000,
     address: 'Al Qadisiyyah St, Al Yasmin District',
-    district: 'Al Yasmin (حي الياسمين)',
+    district: 'Al Yasmin',
     city: 'Riyadh',
     zip: '13322',
     coordinates: {
@@ -458,7 +458,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'The Sky Lounge & Terrace (جلسة السطح)',
+        name: 'The Sky Lounge & Terrace',
         sqft: 75,
         imageUrl: 'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Cool Evening Breeze & Outdoor Fire',
@@ -470,7 +470,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-3',
-      name: 'Rakan Al-Ghamdi | راكان الغامدي',
+      name: 'Rakan Al-Ghamdi',
       title: 'Principal Residential Broker',
       brokerage: 'Al Malqa Real Estate Advisory',
       phone: '+966 54 812 7700',
@@ -480,7 +480,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 165,
       salesVolume: 'SAR 280M+ in Northern Riyadh',
       activeListingsCount: 11,
-      languages: ['Arabic (العربية)', 'English'],
+      languages: ['English', 'Arabic'],
       responseTime: 'Under 5 mins',
       bio: 'Specialist in high-end Al Malqa, Al Yasmin and Al Narjis residential villas and land plots.',
       falLicense: 'FAL-1200034189'
@@ -488,12 +488,12 @@ export const INITIAL_PROPERTIES: Property[] = [
   },
   {
     id: 'prop-riyadh-safarat-diplomatic',
-    title: 'The Diplomatic Quarter Courtyard Villa | واحة حي السفارات',
-    titleAr: 'فيلا واحات حي السفارات بتصميم بيئي مستدام وحديقة نخيل',
+    title: 'The Diplomatic Quarter Courtyard Villa',
+    titleAr: 'The Diplomatic Quarter Courtyard Villa',
     tagline: 'Sustainable stone sanctuary in the Diplomatic Quarter (Al Safarat) with Wadi Hanifa walking trail access',
     price: 7600000,
     address: 'Amr Ad Damri St, Diplomatic Quarter (Al Safarat)',
-    district: 'Al Safarat / DQ (حي السفارات)',
+    district: 'Al Safarat / DQ',
     city: 'Riyadh',
     zip: '12512',
     coordinates: {
@@ -546,7 +546,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     virtualTourRooms: [
       {
         id: 'room-1',
-        name: 'The Courtyard Oasis (فناء الواحة)',
+        name: 'The Courtyard Oasis',
         sqft: 110,
         imageUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80',
         ambientSoundTitle: 'Wadi Hanifa Birds & Water Fountain',
@@ -558,7 +558,7 @@ export const INITIAL_PROPERTIES: Property[] = [
     ],
     agent: {
       id: 'agent-2',
-      name: 'Nouf Al-Sudairi | نوف السديري',
+      name: 'Nouf Al-Sudairi',
       title: 'Managing Director, Commercial & Sky Residences',
       brokerage: 'KAFD Private Office Realty',
       phone: '+966 55 421 9088',
@@ -568,7 +568,7 @@ export const INITIAL_PROPERTIES: Property[] = [
       reviewsCount: 142,
       salesVolume: 'SAR 310M+ in 2025',
       activeListingsCount: 6,
-      languages: ['Arabic (العربية)', 'English', 'French'],
+      languages: ['English', 'Arabic', 'French'],
       responseTime: 'Under 10 mins',
       bio: 'Leading luxury real estate advisor in KAFD, Olaya, and Diplomatic Quarter with institutional transaction expertise.',
       falLicense: 'FAL-1100092314'
@@ -587,67 +587,67 @@ export const MOCK_MORTGAGE_QUOTES = (loanAmountSAR: number): MortgageQuote[] => 
     {
       id: 'quote-rajhi',
       lenderName: 'Al Rajhi Bank',
-      lenderNameAr: 'مصرف الراجحي',
+      lenderNameAr: 'Al Rajhi Bank',
       lenderLogo: '🕌',
-      financeType: 'Murabaha (مرابحة)',
+      financeType: 'Murabaha',
       profitRate: 3.99,
       apr: 4.12,
       monthlyInstallment: baseMonthly(3.99, 25),
       downPaymentRequiredPercent: 10,
       termYears: 25,
-      recommendedTag: 'Lowest Profit Rate (أقل هامش ربح)'
+      recommendedTag: 'Lowest Profit Rate'
     },
     {
       id: 'quote-snb',
       lenderName: 'Saudi National Bank (SNB)',
-      lenderNameAr: 'البنك الأهلي السعودي',
+      lenderNameAr: 'Saudi National Bank',
       lenderLogo: '🏛️',
-      financeType: 'Murabaha (مرابحة)',
+      financeType: 'Murabaha',
       profitRate: 4.15,
       apr: 4.28,
       monthlyInstallment: baseMonthly(4.15, 25),
       downPaymentRequiredPercent: 10,
       termYears: 25,
-      recommendedTag: 'Fast Digital Approval (موافقة فورية)'
+      recommendedTag: 'Fast Digital Approval'
     },
     {
       id: 'quote-sakani',
       lenderName: 'Sakani & REDF Subsidized Program',
-      lenderNameAr: 'برنامج الدعم السكني والصندوق العقاري',
+      lenderNameAr: 'Sakani & REDF Subsidized Program',
       lenderLogo: '🇸🇦',
-      financeType: 'Subsidized Sakani (سكني)',
+      financeType: 'Subsidized Sakani',
       profitRate: 3.25,
       apr: 3.40,
       monthlyInstallment: baseMonthly(3.25, 25),
       downPaymentRequiredPercent: 5,
       termYears: 25,
-      recommendedTag: 'Gov Subsidized (تمويل سكني مدعوم)'
+      recommendedTag: 'Gov Subsidized'
     },
     {
       id: 'quote-riyad',
       lenderName: 'Riyad Bank',
-      lenderNameAr: 'بنك الرياض',
+      lenderNameAr: 'Riyad Bank',
       lenderLogo: '🐎',
-      financeType: 'Ijara (إجارة)',
+      financeType: 'Ijara',
       profitRate: 4.25,
       apr: 4.40,
       monthlyInstallment: baseMonthly(4.25, 25),
       downPaymentRequiredPercent: 15,
       termYears: 25,
-      recommendedTag: 'Flexible Tenor (مرونة في السداد)'
+      recommendedTag: 'Flexible Tenor'
     },
     {
       id: 'quote-alinma',
       lenderName: 'Alinma Bank',
-      lenderNameAr: 'مصرف الإنماء',
+      lenderNameAr: 'Alinma Bank',
       lenderLogo: '⭐',
-      financeType: 'Murabaha (مرابحة)',
+      financeType: 'Murabaha',
       profitRate: 4.09,
       apr: 4.22,
       monthlyInstallment: baseMonthly(4.09, 25),
       downPaymentRequiredPercent: 10,
       termYears: 25,
-      recommendedTag: '100% Sharia Certified (متوافق مع الشريعة)'
+      recommendedTag: '100% Sharia Certified'
     }
   ];
 };
@@ -657,9 +657,9 @@ export const INITIAL_PRICE_ALERTS: PriceAlert[] = [
     id: 'alert-hittin-palace',
     type: 'property',
     propertyId: 'prop-riyadh-hittin-palace',
-    propertyTitle: 'The Hittin Sovereign Villa | قصر حطين المودرن',
+    propertyTitle: 'The Hittin Sovereign Villa',
     propertyImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80',
-    district: 'Hittin (حي حطين)',
+    district: 'Hittin',
     initialPrice: 9400000,
     currentPrice: 8900000,
     targetPrice: 9000000,
@@ -679,16 +679,16 @@ export const INITIAL_PRICE_ALERTS: PriceAlert[] = [
       newPrice: 8900000,
       savingsSAR: 500000,
       dropPercent: 5.3,
-      date: 'Today, 2 hours ago (اليوم، منذ ساعتين)',
+      date: 'Today, 2 hours ago',
     }
   },
   {
     id: 'alert-kafd-penthouse',
     type: 'property',
     propertyId: 'prop-riyadh-kafd-penthouse',
-    propertyTitle: 'The KAFD Horizon Sky Villa | بنتهاوس كافد البانورامي',
+    propertyTitle: 'The KAFD Horizon Sky Villa',
     propertyImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80',
-    district: 'KAFD (مركز الملك عبدالله المالي)',
+    district: 'KAFD',
     initialPrice: 6200000,
     currentPrice: 6200000,
     targetPrice: 5890000,
@@ -707,7 +707,7 @@ export const INITIAL_PRICE_ALERTS: PriceAlert[] = [
   {
     id: 'alert-malqa-search-criteria',
     type: 'criteria',
-    district: 'Al Malqa (الملقا)',
+    district: 'Al Malqa',
     propertyType: 'Luxury Modern Villa',
     initialPrice: 5000000,
     currentPrice: 4950000,
@@ -728,7 +728,7 @@ export const INITIAL_PRICE_ALERTS: PriceAlert[] = [
       newPrice: 4950000,
       savingsSAR: 250000,
       dropPercent: 4.8,
-      date: 'Yesterday (أمس)',
+      date: 'Yesterday',
     }
   }
 ];

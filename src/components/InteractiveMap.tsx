@@ -79,7 +79,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             }`}
           >
             <Compass className="w-3.5 h-3.5" />
-            <span>خريطة الرياض</span>
+            <span>Riyadh Map</span>
           </button>
           <button
             onClick={() => setActiveLayer('heatmap')}
@@ -90,7 +90,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             }`}
           >
             <Flame className="w-3.5 h-3.5" />
-            <span>حرارة الأسعار</span>
+            <span>Price Heatmap</span>
           </button>
           <button
             onClick={() => setActiveLayer('metro')}
@@ -101,14 +101,14 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             }`}
           >
             <Building className="w-3.5 h-3.5" />
-            <span>كافد ومسار المترو</span>
+            <span>KAFD & Metro</span>
           </button>
         </div>
 
         {/* Live Market Tag */}
         <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-gray-200 text-xs font-bold text-gray-700 shadow-sm pointer-events-auto">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-          <span>REGA Verified · صفقات حية</span>
+          <span>REGA Verified · Live Feed</span>
         </div>
       </div>
 
@@ -216,20 +216,20 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               fill="none"
               strokeLinecap="round"
             />
-            <text x="220" y="320" fill="#059669" opacity="0.6" fontSize="11" fontWeight="bold" letterSpacing="1">WADI HANIFA (وادي حنيفة)</text>
+            <text x="220" y="320" fill="#059669" opacity="0.6" fontSize="11" fontWeight="bold" letterSpacing="1">WADI HANIFA</text>
 
             {/* Major Arteries / Ring Roads */}
             {/* 1. King Fahd Road */}
             <line x1="520" y1="0" x2="520" y2="650" stroke="#cbd5e1" strokeWidth="5" />
-            <text x="528" y="80" fill="#64748b" fontSize="10" fontWeight="bold">KING FAHD ROAD (طريق الملك فهد)</text>
+            <text x="528" y="80" fill="#64748b" fontSize="10" fontWeight="bold">KING FAHD ROAD</text>
 
             {/* 2. Northern Ring Road */}
             <line x1="0" y1="310" x2="1000" y2="310" stroke="#cbd5e1" strokeWidth="5" />
-            <text x="40" y="302" fill="#64748b" fontSize="10" fontWeight="bold">NORTHERN RING ROAD (الطريق الدائري الشمالي)</text>
+            <text x="40" y="302" fill="#64748b" fontSize="10" fontWeight="bold">NORTHERN RING ROAD</text>
 
             {/* 3. King Salman Road */}
             <line x1="0" y1="90" x2="1000" y2="90" stroke="#e2e8f0" strokeWidth="4" />
-            <text x="40" y="82" fill="#94a3b8" fontSize="10" fontWeight="bold">KING SALMAN ROAD (طريق الملك سلمان)</text>
+            <text x="40" y="82" fill="#94a3b8" fontSize="10" fontWeight="bold">KING SALMAN ROAD</text>
 
             {/* 4. Prince Turki Al Awwal Rd */}
             <line x1="380" y1="0" x2="380" y2="650" stroke="#e2e8f0" strokeWidth="3" strokeDasharray="6 4" />
@@ -237,32 +237,32 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
             {/* 5. Anas Ibn Malik Rd */}
             <line x1="0" y1="210" x2="1000" y2="210" stroke="#e2e8f0" strokeWidth="3" />
-            <text x="700" y="202" fill="#94a3b8" fontSize="9" fontWeight="semibold">Anas Ibn Malik Rd (طريق أنس بن مالك)</text>
+            <text x="700" y="202" fill="#94a3b8" fontSize="9" fontWeight="semibold">Anas Ibn Malik Rd</text>
 
             {/* District Enclosures & Labels */}
             <g opacity="0.85">
               {/* Hittin */}
               <rect x="300" y="220" width="160" height="80" rx="12" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-              <text x="340" y="255" fill="#1e293b" fontSize="12" fontWeight="bold">HITTIN (حطين)</text>
+              <text x="350" y="255" fill="#1e293b" fontSize="12" fontWeight="bold">HITTIN</text>
               <text x="325" y="275" fill="#64748b" fontSize="9">Avg: SAR 13,200/m²</text>
 
               {/* Al Malqa */}
               <rect x="300" y="100" width="160" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-              <text x="330" y="138" fill="#1e293b" fontSize="12" fontWeight="bold">AL MALQA (الملقا)</text>
+              <text x="340" y="138" fill="#1e293b" fontSize="12" fontWeight="bold">AL MALQA</text>
               <text x="325" y="158" fill="#64748b" fontSize="9">Avg: SAR 11,500/m²</text>
 
               {/* KAFD Hub */}
               <rect x="470" y="210" width="150" height="90" rx="12" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1.5" />
-              <text x="500" y="245" fill="#1e40af" fontSize="13" fontWeight="bold">KAFD (كافد)</text>
+              <text x="515" y="245" fill="#1e40af" fontSize="13" fontWeight="bold">KAFD</text>
               <text x="485" y="265" fill="#3b82f6" fontSize="9">Financial District · Metro</text>
 
               {/* Al Nakheel */}
               <rect x="300" y="325" width="160" height="80" rx="12" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-              <text x="325" y="360" fill="#1e293b" fontSize="12" fontWeight="bold">AL NAKHEEL (النخيل)</text>
+              <text x="335" y="360" fill="#1e293b" fontSize="12" fontWeight="bold">AL NAKHEEL</text>
 
               {/* Al Yasmin */}
               <rect x="470" y="100" width="150" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
-              <text x="495" y="140" fill="#1e293b" fontSize="12" fontWeight="bold">AL YASMIN (الياسمين)</text>
+              <text x="505" y="140" fill="#1e293b" fontSize="12" fontWeight="bold">AL YASMIN</text>
             </g>
 
             {/* Riyadh Landmarks / Points of Interest */}
@@ -360,20 +360,26 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-gray-100">
+          <div className="grid grid-cols-3 gap-1.5 mt-3 pt-3 border-t border-gray-100">
             <button
               onClick={() => onOpenVirtualTour(selectedProperty)}
-              className="flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold transition-colors"
+              className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-[11px] font-semibold transition-colors"
             >
               <Eye className="w-3.5 h-3.5 text-[#C82021]" />
               <span>3D Tour</span>
             </button>
             <button
               onClick={() => onOpenAgentChat(selectedProperty)}
-              className="flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-xs font-bold transition-colors shadow-2xs"
+              className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-[11px] font-semibold transition-colors"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Chat Broker</span>
+              <span>Agent</span>
+            </button>
+            <button
+              onClick={() => onSelectProperty(selectedProperty)}
+              className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-xl bg-[#C82021] hover:bg-[#b01c1d] text-white text-[11px] font-bold transition-colors shadow-2xs"
+            >
+              <span>Details</span>
             </button>
           </div>
         </div>

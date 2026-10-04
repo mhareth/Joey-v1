@@ -21,14 +21,14 @@ interface RecommendationHubProps {
 }
 
 const RIYADH_AMENITY_OPTIONS = [
-  'Private Elevator (مصعد إيطالي)',
-  'Private Pool (مسبح خاص)',
-  'Driver Room (غرفة سائق)',
-  'Maid Quarter (غرفة خادمة)',
-  'Rooftop Majlis (جلسة سطح فاخرة)',
-  'Smart Home KNX (تحكم ذكي)',
-  '10-Yr Malath Insurance (تأمين ملاذ)',
-  'Saudi Building Code (كود البناء)'
+  'Private Elevator',
+  'Private Swimming Pool',
+  'Driver Quarters',
+  'Maid Quarters',
+  'Rooftop Majlis Terrace',
+  'Smart Home Automation (KNX)',
+  '10-Year Malath Structural Warranty',
+  'Saudi Building Code Compliance'
 ];
 
 export const RecommendationHub: React.FC<RecommendationHubProps> = ({
@@ -47,7 +47,7 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
     minBeds: 5,
     minBaths: 5,
     propertyTypes: ['Contemporary Palace', 'Luxury Modern Villa', 'KAFD Sky Penthouse'],
-    mustHaveAmenities: ['Private Elevator (مصعد إيطالي)', 'Driver Room (غرفة سائق)', '10-Yr Malath Insurance (تأمين ملاذ)'],
+    mustHaveAmenities: ['Private Elevator', 'Driver Quarters', '10-Year Malath Structural Warranty'],
     purchaseTimeline: '1 - 3 months',
     targetMonthlyPayment: 32000,
     priority: 'luxury_lifestyle',
@@ -122,13 +122,13 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-[#C82021] text-xs font-bold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Redfin Matchmaker • محرك المطابقة العقارية الذكي</span>
+            <span>Redfin Matchmaker • AI Property Matching Engine</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight font-sans">
             Personalized Riyadh Property Matchmaker
           </h1>
           <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-            حدد ميزانيتك بالريال السعودي، والحي المفضل (حطين، الملقا، كافد، النخيل)، واحتياجات أسرتك (مصعد، غرفة سائق، مسبح). يقوم النظام بمطابقة أفضل الفلل والبنتهاوسات في الرياض مع مؤشرات التقييم المالي.
+            Specify your budget ceiling in SAR, preferred districts (Hittin, Al Malqa, KAFD, Al Nakheel), and your household requirements (elevator, pool, driver suite). EstateIQ scores and ranks matching Riyadh luxury homes based on valuation and lifestyle metrics.
           </p>
         </div>
       </div>
@@ -140,13 +140,13 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
         <div className="lg:col-span-1 space-y-5 bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-xs">
           <div className="flex items-center gap-2 pb-3 border-b border-gray-100">
             <Target className="w-5 h-5 text-[#C82021]" />
-            <h3 className="font-bold text-gray-900 text-sm">معايير البحث في الرياض</h3>
+            <h3 className="font-bold text-gray-900 text-sm">Riyadh Buyer Profile & Search Criteria</h3>
           </div>
 
           {/* Budget Range */}
           <div>
             <div className="flex justify-between text-xs font-bold text-gray-700 mb-1.5">
-              <span>Budget Ceiling (سقف الميزانية)</span>
+              <span>Budget Ceiling</span>
               <span className="text-[#C82021] font-mono-num font-black">
                 SAR {(profile.budgetMax / 1000000).toFixed(1)}M
               </span>
@@ -170,7 +170,7 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
           {/* Target Monthly Payment */}
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1.5">
-              Target Monthly Installment (القسط الشهري المستهدف)
+              Target Monthly Installment
             </label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-bold">SAR</span>
@@ -186,12 +186,12 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
           {/* Priority Focus */}
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1.5">
-              الأولوية الإستراتيجية (Strategic Priority)
+              Strategic Investment Priority
             </label>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'luxury_lifestyle', label: 'Luxury Villa Lifestyle' },
-                { id: 'investment_roi', label: 'Max Rental Yield (عائد)' },
+                { id: 'investment_roi', label: 'Max Rental Yield' },
                 { id: 'kafd_proximity', label: 'Near KAFD & Metro' },
                 { id: 'family_schools', label: 'Schools & Privacy' }
               ].map(p => (
@@ -213,7 +213,7 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
           {/* Target Districts */}
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1.5">
-              الأحياء المفضلة بالرياض (Preferred Districts)
+              Preferred Districts
             </label>
             <div className="flex flex-wrap gap-1.5">
               {['Hittin', 'Al Malqa', 'KAFD', 'Al Nakheel', 'Al Yasmin', 'Al Safarat'].map(dist => (
@@ -235,7 +235,7 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
           {/* Must Have Amenities */}
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1.5">
-              المواصفات الضرورية للعقار
+              Must-Have Amenities & Specifications
             </label>
             <div className="flex flex-wrap gap-1.5">
               {RIYADH_AMENITY_OPTIONS.map(a => (
@@ -263,12 +263,12 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
             {isLoading ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                جاري تحليل محفظة عقارات الرياض...
+                Analyzing Riyadh luxury properties...
               </>
             ) : (
               <>
                 <Sparkles className="w-4 h-4" />
-                تحليل ومطابقة العقارات بالذكاء الاصطناعي
+                Run AI Property Matchmaker
               </>
             )}
           </button>
@@ -279,7 +279,7 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C82021]" />
-              {hasRun ? 'أعلى العقارات تطابقاً مع ملفك في الرياض' : 'عقارات مختارة في شمال الرياض'}
+              {hasRun ? 'Top AI-Matched Properties for Your Profile' : 'Featured Luxury Properties in North Riyadh'}
             </h3>
             {hasRun && (
               <span className="text-xs text-gray-500 font-mono-num font-semibold">
@@ -346,10 +346,10 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
                       {/* AI Reason box */}
                       <div className="mt-2.5 p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs">
                         <p className="text-gray-800 font-medium">
-                          <strong className="text-gray-900">سبب التوصية:</strong> {reason}
+                          <strong className="text-gray-900">AI Match Rationale:</strong> {reason}
                         </p>
                         <p className="text-gray-500 mt-1 text-[11px]">
-                          <strong>ملاحظة استراتيجية:</strong> {tradeoff}
+                          <strong>Strategic Observation:</strong> {tradeoff}
                         </p>
                       </div>
                     </div>
@@ -360,10 +360,10 @@ export const RecommendationHub: React.FC<RecommendationHubProps> = ({
                         <button
                           onClick={() => onOpenPriceAlert(property)}
                           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-semibold transition-colors"
-                          title="تفعيل تنبيه انخفاض السعر"
+                          title="Set price drop alert"
                         >
                           <Bell className="w-3.5 h-3.5 text-[#C82021]" />
-                          تنبيه السعر
+                          Price Alert
                         </button>
                       )}
                       <button
