@@ -530,7 +530,7 @@ export default function App() {
       <footer className="border-t border-gray-200 bg-white py-8 text-xs text-gray-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between flex-col sm:flex-row gap-4">
           <div className="flex items-center gap-2">
-            <span className="font-black text-gray-900 font-sans tracking-tight">Estate<span className="text-[#C82021]">IQ</span></span>
+            <span className="font-black text-gray-900 font-sans tracking-tight">Joey <span className="text-[#C82021]">Properties</span></span>
             <span className="text-gray-400">· Riyadh, Kingdom of Saudi Arabia</span>
           </div>
           <p className="text-gray-400 text-center sm:text-right text-[11px]">
